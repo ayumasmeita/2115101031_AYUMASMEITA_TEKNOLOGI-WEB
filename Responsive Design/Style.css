@@ -1,0 +1,110 @@
+body {
+    background: rgb(196, 222, 135);
+    margin: 4;
+    font-stretch: 'Open Sans', sans-serif;
+}
+
+hr {
+    border: 0;
+    background: #e22c2c;
+    height: 1px;
+}
+
+header .logo {
+    margin: 100;
+    text-align: center;
+}
+
+.wrap {
+    width: 950px;
+    margin: auto;
+}
+
+
+
+
+.sidebar .widget {
+    padding: 15px;
+    margin: 0 0 0px;
+    background: #fff;
+    text-align: center;
+    width: 20;
+    border-bottom: 0px solid #fff;
+    transition: all 0.1s ease;
+   }
+
+   nav.menu ul a:hover {
+    text-decoration: underline;
+    background: #16a085;
+   }
+ 
+nav.menu ul {
+    overflow: hidden;
+    color: #fff;
+    list-style: none;
+    float: left;
+    padding: 0;
+    width: 100%;
+    margin: 40 40 40;
+    background: #1abc9c;
+    -webkit-box-shadow: 1px 1px 1px 0px rgba(204, 204, 204, 0.55);
+    -moz-box-shadow: 1px 1px 1px 0px rgba(204, 204, 204, 0.55);
+    box-shadow: 1px 1px 1px 0px rgba(204, 204, 204, 0.55);
+}
+
+nav.menu ul a:hover {
+    text-decoration: underline;
+    background: black;
+   }
+
+
+nav.menu ul li {
+    margin: 0;
+    text-align: center;
+}
+
+nav.menu ul a {
+    padding: 25px;
+    display: block;
+    font-weight: 100;
+    font-size: 20px;
+    color: rgb(255, 255, 255);
+    text-transform: uppercase;
+    transition: all 0.5s ease;
+    text-decoration: none;
+}
+
+.blog {
+    float: middle;
+}
+
+.conteudo {
+    width: 400px;
+    padding: 0 25px 25px 25px;
+    margin: 40px auto;
+    -webkit-box-shadow: 1px 1px 1px 0px rgba(204, 204, 204, 0.35);
+    -moz-box-shadow: 1px 1px 1px 0px rgba(204, 204, 204, 0.35);
+    box-shadow: 1px 1px 1px 0px rgba(204, 204, 204, 0.35);
+}
+
+.conteudo img {
+    width: 450px;
+    margin-left: -25px;
+   }
+
+
+@media screen and (max-width: 960px) {
+    .header {
+    position: inherit;
+}
+
+.conteudo .continue-lendo:hover {
+    margin-left: 0;
+}
+
+.footer {
+    position: inherit;
+}
+
+}
+   

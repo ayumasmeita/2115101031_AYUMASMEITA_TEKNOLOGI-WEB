@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    </head>
+<body style="background-color: black;">
+    <div style="width: 1024px; margin:auto">
+         <div style="background-color: #AED6F1; padding: 10px;">
+             <table  style="width: 100%;">
+                 <tr>
+                    <td width="120">
+                        <img  src="1.png" width="100">
+                     </td>
+                     <td>
+                        <h1 style="margin: 0px;">
+                            selamat datang
+                        </h1>
+                        <h4 style="margin: 0px;"> sistem informasi</h4>
+                        <div align="right" style="padding-right: 10px;">
+                            <a href="logout.html">logout</a>
+                            </div>
+                     </td>
+                 </tr>
+            </table>
+        
+        </div>
+        <div style="background-color: #dcdcdc; float: left; width: 100%;">
+            <div style="width: 30%; float: left;">
+                <div style="padding: 10px;">
+                    <b>Menu</b><br>
+                    <hr>
+                    <a href="#">home</a><br />
+                    <a href="#">home</a><br />
+                    <a href="#">home</a><br />
+                    <a href="#">home</a><br />
+            </div>
+        </div>
+
+        <div style="background-color: #EEEEEE; width: 70%;  float: right;">
+            <div style="padding: 10px;">
+                <h4 style="margin: 0px;">update biodata karyawan</h4>
+                <hr/>
+
+                <form method="post" onsubmit="return ValidasiForm()" name="FormReg">
+                    <table>
+                        <tr>
+                            <td>nama</td>
+                            <td>:</td>
+                            <td><input type="text" name="nama" value="" placeholder="tuliskan nama anda" /></br>
+
+                                <small style="color: red" class="" id="err_nama"></small>
+                            </td>
+                        </tr>
+                    <tr>
+                        <td>NIM</td>
+                        <td>:</td>
+                        <td><input type="text" name="nim" value="" placeholder="tuliskan nim anda" /></br>
+                            <small style="color: red" class="" id="err_nim"></small>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>pilih bangun datar</td>
+                        <td>:</td>
+
+                        <td>
+
+                            <input type="radio" name="bangun" value="persegi" onclick="persegi()" checked /> persegi
+                            <input type="radio" name="bangun" value="belahketupat" onclick="belahketupat()" checked /> belah ketupat
+                            <input type="radio" name="bangun" value="segitiga" onclick="segitiga()" checked /> segitiga
+                            </br>
+                            <small style="color: red" class="" id="err_jenis_kelamin"></small>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>luas bangun datar</td>
+                        <td>:</td>
+                        <td id="nama_bangun">persegi</td>
+                    </tr>
+                    <tr>
+                        <td colspan="3">
+                            <hr/> </td>
+                    </tr>
+                    <tr>
+                        <td id="par1">panjang</td>
+                        <td>:</td>
+
+                        <td><input type="number" name="par1" value="" onkeyup="hitung()" placeholder="hanya angka" /></br>
+                    </tr>
+                    <tr>
+                        <td id="par2">lebar</td>
+                        <td>:</td>
+                        <td><input type="number" name="par2" value="" onkeyup="hitung()" placeholder="hanya angka" /></br>
+                    </tr>
+                    <tr>
+                        <td>luas</td>
+                        <td>:</td>
+                        <td><input type="number" id="hasilID" name="hasil" value="" readonly /></br>
+                            <small style="color: red" class="" id="err_hasil"></small></td>
+                    </tr>
+                    <tr>
+                        <td colspan="3">
+                            <hr/> </td>
+                    </tr>
+                    <tr>
+                        <td colspan="3" align="right"><button>simpan</button></td>
+                    </tr>
+                </table>
+            </form>
+        </div>
+    </div>
+</div>
+    <div style="background-color: rgb(2, 2, 39); clear: both; text-align: center; padding: 15px;;">
+        <font color="white">copyright 8#169; pt. guna jaya</white></font>
+    </div>
+
+</div>
+
+</body>
+<script type="text/javascript">
+    function ValidasiForm(){
+
+        if (document.FormReg.nama.value == "") {
+
+            $("#err_nama") = "nama harus diisi";
+            return false;
+        } else {
+            $("#err_nama").innerHTML ="";
+        }
+        if (document.FormReg.nim.value == "") {
+            $("#err_nim") = "nim harus diisi";
+            return false;
+        } else {
+            $("#err_nim").innerHTML ="";
+        }
+        if (document.FormReg.hasil.value == "") {
+            $("#err_hasil") = "silahkan isikan parameter";
+            return false;
+        }else {
+            $("#err_hasil").innerHTML ="";
+        }
+    }
+
+
+    function persegi(){
+
+        $("#nama_bangun").html ("persegi");
+        $("#par1").html = "panjang";
+        $("#par2").html = "lebar";
+
+        hitung();
+    }
+
+    function belahketupat(){
+        $("#nama_bangun").html ("belah ketupat");
+        $("#par1").html = "Diameter 1";
+        $("#par2").html = "Diameter 2";
+        hitung();
+    }
+
+    function segitiga(){
+        $("#nama_bangun").html ("segitiga");
+        $("#par1").html = "alas";
+        $("#par2").html = "tinggi";
+        hitung();
+    }
+    
+    function hitung(){
+
+        var hasil = 0;
+
+
+
+        var par1 = parseFloat($("input[name='par1']").val());
+        var par2 = parseFloat($("input[name='par2']").val());
+
+        switch (document.FormReg.bangun.value) {
+            case "persegi":
+                hasil = par1 * par2;
+                break;
+            case "belahketupat":
+                hasil = (par1 * par2) / 2;
+                break;
+            case "segitiga":
+                hasil = (par1 * par2) / 2;
+                break;
+        }
+
+        document.FormReg.hasil.value = hasil;
+
+    } 
+</script>
+</body>
+</html>
